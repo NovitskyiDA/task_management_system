@@ -8,6 +8,19 @@
 </head>
 <body>
 
+<p class="notice"><%= notice if notice %></p>
+<p class="alert"><%= alert if alert %></p>
+
+<%= link_to 'Home', root_path %>
+
+<% if user_signed_in? %>
+    <%= link_to current_user.email, edit_user_registration_path %>
+    <%= link_to 'Sing out', destroy_user_session_path, method: :delete %>
+<% else %>
+    <%= link_to 'Sing up', new_user_registration_path %>
+    <%= link_to 'Sing in', new_user_session_path %>
+<% end %>
+
 <%= yield %>
 
 </body>
