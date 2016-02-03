@@ -1,1 +1,25 @@
-<h1>List of tasks</h1>
+<% if user_signed_in? %>
+    <h1>List of tasks</h1>
+
+    <%= render 'list_tasks' %>
+
+    <div class="new">
+
+        <p><%= link_to 'New task', new_task_path %></p>
+
+    </div>
+<% else %>
+    <div class="about">
+      <h1>Task Management System</h1>
+        <h2>
+          <p>Task management is the process of managing a task through its lifecycle.</p>
+          <p>It involves planning, testing, tracking and reporting.</p>
+          <p>Task management can help either individuals achieve goals, or groups of
+          individuals collaborate and share knowledge for the accomplishment
+          of collective goals.</p>
+        </h2>
+
+        <%= link_to image_tag('sign-up.png', class: "sign-up"), new_user_registration_path %>
+    </div>
+
+<% end %>

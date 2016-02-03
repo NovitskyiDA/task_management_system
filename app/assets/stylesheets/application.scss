@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-datepicker
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -34,11 +35,18 @@
 body{
   background-color: lightyellow;
   margin: 100px;
+  #sign-up {
+    text-align: center;
+  }
 }
 
-h1{
+h1, h2{
   text-align: center;
   color: indigo;
   font-family: "Times New Roman";
 }
+
+
+
+
 

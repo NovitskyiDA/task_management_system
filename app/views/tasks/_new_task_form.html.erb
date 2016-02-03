@@ -1,0 +1,38 @@
+<%= form_for @task do |f| %>
+    <%= render 'errors' %>
+
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </p>
+
+    <p>
+      <%= f.label :due_date %><br>
+      <%= f.text_field :due_date, "data-provide" => 'datepicker' %>
+    </p>
+
+    <p>
+      <%= f.label :priority, 'active' %>
+      <%= f.radio_button :priority, 1, :checked => true  %>
+    </p>
+
+    <p>
+      <%= f.label :priority, 'inactive' %>
+      <%= f.radio_button :priority, 0 %>
+    </p>
+
+    <p>
+      <%= f.label :priority, 'finished' %>
+      <%= f.radio_button :priority, 2 %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end %>

@@ -2,3 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.task{
+  padding: 10px;
+  margin: 10px;
+  border: 5px solid red;
+  .title{
+      a{
+        color: dodgerblue;
+      }
+      font-size: 16pt;
+      font-weight: bold;
+      text-align: center;
+  }
+}
+
+.new{
+  text-align: center;
+  margin: 50px;
+}
+
+.about {
+  text-align: center;
+}
+
+
+.sign-up {
+  width: 200px;
+  margin: 50px;
+}

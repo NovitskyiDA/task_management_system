@@ -30,6 +30,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Authentication
 gem 'devise', '~> 3.5', '>= 3.5.6'
 
+# Datepicker
+gem 'bootstrap-datepicker-rails', '~> 1.5'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
