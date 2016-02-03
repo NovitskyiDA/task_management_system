@@ -16,3 +16,17 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require_tree .
+
+var ready;
+ready = function() {
+    $(".title-task").hover(
+        function () {
+            $('.hover-over').show();
+        },
+        function () {
+            $('.hover-over').hide();
+        }
+    );
+};
+$(document).ready(ready);
+$(document).on('page:load', ready);
