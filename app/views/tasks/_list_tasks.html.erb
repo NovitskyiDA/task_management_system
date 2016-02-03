@@ -1,11 +1,18 @@
-<% @tasks.each do |task| %>
-    <div class="task">
-      <p class="title"><%= link_to task.title, task_path(task) %></p>
-      <hr>
-      <p><%= link_to 'Edit', edit_task_path(task) %></p>
-      <p><%= link_to 'Delete', task_path(task),
-                     method: :delete,
-                     data: { confirm: 'Are you sure?' } %>
-      </p>
-    </div>
+<% list.each do |task| %>
+      <div class="task">
+        <%= check_box_tag 'task_ids[]', task.id -%>
+        <p class="title"><%= link_to task.title, task_path(task) %></p>
+        <hr>
+        <p><%= link_to 'Edit', edit_task_path(task) %></p>
+        <p><%= link_to 'Delete', task_path(task),
+                       method: :delete,
+                       data: { confirm: 'Are you sure?' } %>
+        </p>
+        <% if task.priority == 0 or task.priority == 2 %>
+            <p><%= button_to 'mark as active' %></p>
+        <% else task.priority == 1 %>
+            <p><%= button_to 'mark as completed' %></p>
+        <% end %>
+      </div>
 <% end %>
+

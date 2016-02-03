@@ -6,6 +6,7 @@
   padding: 10px;
   margin: 10px;
   border: 5px solid red;
+  border-radius: 10px;
   .title{
       a{
         color: dodgerblue;
@@ -16,9 +17,9 @@
   }
 }
 
-.new{
+.new_task{
   text-align: center;
-  margin: 50px;
+  margin: auto;
 }
 
 .about {

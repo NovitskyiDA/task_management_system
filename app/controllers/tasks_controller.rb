@@ -1,12 +1,17 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :priority, only: [:show, :update]
   before_filter :authenticate_user!, except: [:index]
 
   def index
     if current_user
       @user = User.find(current_user)
-      @tasks = @user.tasks
+      if params[:sort] == 'title'
+        @tasks = @user.tasks.order(:title)
+      else
+        @active_tasks = @user.tasks.active
+        @completed_tasks = @user.tasks.completed
+        @inactive_tasks = @user.tasks.inactive
+      end
     end
   end
 
@@ -41,7 +46,13 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path
+    redirect_to root_path
+  end
+
+  def destroy_multiple
+    tasks = Task.where(:id => params[:task_ids])
+    tasks.delete_all
+    redirect_to root_path
   end
 
   private
@@ -54,13 +65,4 @@ class TasksController < ApplicationController
     params.require(:task).permit(:title, :description, :priority, :due_date)
   end
 
-  def priority
-    if @task.priority == 1
-      @status = 'active'
-    elsif @task.priority == 2
-      @status = 'finished'
-    elsif @task.priority == 0
-      @status = 'inactive'
-    end
-  end
 end
