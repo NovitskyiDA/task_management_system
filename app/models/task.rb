@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
   belongs_to :user
 
-  validates_presence_of :title, :description, :user_id
+  validates_presence_of :title, :description, :due_date, :user_id
   validate :future_data
   validate :priority_status
 

@@ -3,15 +3,15 @@
         <div class="batch-delete">
           <%= check_box_tag 'task_ids[]', task.id, false %>
         </div>
-        <div class="title-task">
-          <%= link_to task.title, task_path(task) %>
-          <div class="hover-over">
-            <%= link_to 'Edit', edit_task_path(task), :remote => false %>
-            <%= link_to 'Delete', task_path(task),
-                           method: :delete,
-                           data: { confirm: 'Are you sure?', :remote => false } %>
+          <div class="title-task">
+            <%= link_to task.title, task_path(task) %>
+            <div class="hover-over">
+              <%= link_to 'Edit', edit_task_path(task), :remote => false %>
+              <%= link_to 'Delete', task_path(task),
+                             method: :delete,
+                             data: { confirm: 'Are you sure?', :remote => false } %>
+            </div>
           </div>
-        </div>
         <hr>
         <p><%= link_to 'Edit', edit_task_path(task) %></p>
         <p><%= link_to 'Delete', task_path(task),

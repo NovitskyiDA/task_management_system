@@ -24,15 +24,14 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Use ActiveModel has_secure_password
+# Use ActiveModel has_s ecure_password
 gem 'bcrypt', '~> 3.1.7'
 
 # Authentication
 gem 'devise', '~> 3.5', '>= 3.5.6'
 
 # Datepicker
-gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap-datetimepicker-rails', '~> 0.0.11'
+gem 'jquery-datetimepicker-rails'
 
 # Client side validation
 gem 'client_side_validations', '~> 4.2', '>= 4.2.1'

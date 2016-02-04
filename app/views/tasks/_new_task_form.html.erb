@@ -14,22 +14,22 @@
 
     <p>
       <%= f.label :due_date %><br>
-      <%= f.datetime_select :due_date, validate: false %>
+      <%= f.text_field :due_date, id: 'datetimepicker', validate: true %>
     </p>
 
     <p>
       <%= f.label :priority, 'active' %>
-      <%= f.radio_button :priority, 1, :checked => true, validate: true %>
+      <%= f.radio_button :priority, 1, :checked => true %>
     </p>
 
     <p>
       <%= f.label :priority, 'inactive' %>
-      <%= f.radio_button :priority, 0, validate: true %>
+      <%= f.radio_button :priority, 0%>
     </p>
 
     <p>
       <%= f.label :priority, 'completed' %>
-      <%= f.radio_button :priority, 2, validate: true %>
+      <%= f.radio_button :priority, 2 %>
     </p>
 
     <p>
