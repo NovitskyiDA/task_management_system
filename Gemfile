@@ -31,7 +31,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 3.5', '>= 3.5.6'
 
 # Datepicker
-gem 'bootstrap-datepicker-rails', '~> 1.5'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap-datetimepicker-rails', '~> 0.0.11'
+
+# Client side validation
+gem 'client_side_validations', '~> 4.2', '>= 4.2.1'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

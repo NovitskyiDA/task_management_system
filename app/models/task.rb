@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
   belongs_to :user
 
-  validates_presence_of :title, :description, :due_date, :user_id
+  validates_presence_of :title, :description, :user_id
   validate :future_data
   validate :priority_status
 
@@ -15,7 +15,7 @@ class Task < ActiveRecord::Base
   end
 
   def future_data
-    errors.add(:due_date, 'can not be blank or in the past') if
+    errors.add(:due_date, 'can not be in the past') if
       !due_date.blank? and due_date < Time.now
   end
 

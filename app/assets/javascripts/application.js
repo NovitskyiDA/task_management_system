@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require bootstrap-datepicker
+//= require moment
+//= require bootstrap-datetimepicker
+//= require rails.validations
 //= require_tree .
 
 var ready;
@@ -47,8 +49,9 @@ ready = function() {
         }
     );
 
+    $('.datetimepicker1').datetimepicker({
+        locale: 'ua'
+    });
 };
 $(document).ready(ready);
 $(document).on('page:load', ready);
-
-

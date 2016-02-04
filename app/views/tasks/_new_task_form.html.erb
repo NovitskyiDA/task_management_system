@@ -1,38 +1,39 @@
-<%= form_for @task do |f| %>
+<%= form_for @task, validate: true do |f| %>
+    <div class="form-group">
     <%= render 'errors' %>
 
     <p>
       <%= f.label :title %><br>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, validate: true %>
     </p>
 
     <p>
       <%= f.label :description %><br>
-      <%= f.text_area :description %>
+      <%= f.text_area :description, validate: true %>
     </p>
 
     <p>
       <%= f.label :due_date %><br>
-      <%= f.text_field :due_date, "data-provide" => 'datepicker' %>
+      <%= f.datetime_select :due_date, validate: false %>
     </p>
 
     <p>
       <%= f.label :priority, 'active' %>
-      <%= f.radio_button :priority, 1, :checked => true  %>
+      <%= f.radio_button :priority, 1, :checked => true, validate: true %>
     </p>
 
     <p>
       <%= f.label :priority, 'inactive' %>
-      <%= f.radio_button :priority, 0 %>
+      <%= f.radio_button :priority, 0, validate: true %>
     </p>
 
     <p>
       <%= f.label :priority, 'completed' %>
-      <%= f.radio_button :priority, 2 %>
+      <%= f.radio_button :priority, 2, validate: true %>
     </p>
 
     <p>
       <%= f.submit %>
     </p>
-
+    </div>
 <% end %>
