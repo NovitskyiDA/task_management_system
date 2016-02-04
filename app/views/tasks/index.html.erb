@@ -1,13 +1,15 @@
 <% if user_signed_in? %>
+    <li><%= link_to 'Full list sorted by title', root_path(sort: 'title') %></li>
+    <li><%= link_to 'Batch delete', root_path, id: "batch-button" %></li>
     <h1>List of tasks</h1>
     <div class="row">
-
+      <%= form_tag destroy_multiple_tasks_path, method: :delete do %>
     <% if @tasks %>
         <div class="col-lg-4">
            <%= render @tasks %>
         </div>
     <% else %>
-        <%= form_tag destroy_multiple_tasks_path, method: :delete do %>
+
 
         <div class="col-lg-4">
           <h1>Active</h1>
@@ -22,12 +24,12 @@
           <%= render @inactive_tasks %>
         </div>
         </div>
-              <div class="batch-delete">
-              <input type="checkbox" id="selectAll" value="selectAll"> Select / Deselect All<br/><br/>
-              <%= submit_tag 'Delete selected' %>
-              </div>
-        <% end %>
 
+        <% end %>
+          <div class="batch-delete">
+            <input type="checkbox" id="selectAll" value="selectAll"> Select / Deselect All<br/><br/>
+            <%= submit_tag 'Delete selected' %>
+          </div>
     <% end %>
 
 
