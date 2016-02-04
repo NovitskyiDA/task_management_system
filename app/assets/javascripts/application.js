@@ -22,10 +22,7 @@ var ready;
 ready = function() {
     $(".title-task").hover(
         function () {
-            $('.hover-over').show();
-        },
-        function () {
-            $('.hover-over').hide();
+            $(this).find('.hover-over').toggle();
         }
     );
 
