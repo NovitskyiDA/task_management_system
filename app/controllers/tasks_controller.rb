@@ -51,7 +51,7 @@ class TasksController < ApplicationController
 
   def destroy_multiple
     tasks = Task.where(:id => params[:task_ids])
-    tasks.delete_all
+    tasks.destroy_all
     redirect_to root_path
   end
 

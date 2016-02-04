@@ -1,6 +1,8 @@
 <% list.each do |task| %>
       <div class="task">
-        <%= check_box_tag 'task_ids[]', task.id -%>
+        <div class="check-box-tag">
+          <%= check_box_tag 'task_ids[]', task.id %>
+        </div>
         <div class="title-task">
           <%= link_to task.title, task_path(task) %>
           <div class="hover-over">
