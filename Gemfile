@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Authentication
 gem 'devise', '~> 3.5', '>= 3.5.6'
+gem 'sendgrid', '~> 1.2', '>= 1.2.4'
 
 # Datepicker
 gem 'jquery-datetimepicker-rails'
