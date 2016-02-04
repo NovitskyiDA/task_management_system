@@ -1,7 +1,7 @@
 <% list.each do |task| %>
       <div class="task">
-        <div class="check-box-tag">
-          <%= check_box_tag 'task_ids[]', task.id %>
+        <div class="batch-delete">
+          <%= check_box_tag 'task_ids[]', task.id, false %>
         </div>
         <div class="title-task">
           <%= link_to task.title, task_path(task) %>

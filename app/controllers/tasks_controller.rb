@@ -30,7 +30,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user = current_user
     if @task.save
-      redirect_to @task
+      redirect_to root_path
     else
       render 'new'
     end

@@ -4,9 +4,7 @@
       <ul class="nav navbar-nav navbar-left">
         <li><%= link_to 'Home', root_path %></li>
         <li><%= link_to 'Full list sorted by title', root_path(sort: 'title') %></li>
-        <div class="batch-delete">
-         <li><%= link_to 'Batch delete', root_path %></li>
-        </div>
+        <li><%= link_to 'Batch delete', root_path, id: "batch-button" %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

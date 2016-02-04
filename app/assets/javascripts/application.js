@@ -27,6 +27,28 @@ ready = function() {
             $('.hover-over').hide();
         }
     );
+
+    $('#selectAll').click(function() {
+        if(this.checked) {
+            $(':checkbox').each(function() {
+                this.checked = true;
+            });
+        } else {
+            $(':checkbox').each(function() {
+                this.checked = false;
+            });
+        }
+    });
+
+    $('#batch-button').click(
+        function() {
+            $('.batch-delete').show();
+            return false;
+        }
+    );
+
 };
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
+
