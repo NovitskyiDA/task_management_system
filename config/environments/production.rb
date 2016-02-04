@@ -77,7 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { :host => 'task-management-system.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'http://task-management-system.herokuapp.com/' }
   ActionMailer::Base.smtp_settings = {
       :address        => "smtp.sendgrid.net",
       :port           => "25",
