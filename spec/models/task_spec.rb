@@ -9,16 +9,30 @@ RSpec.describe Task, type: :model do
   it { should validate_presence_of(:user_id) }
 
 
-  it 'does not allow any priority expect 0, 1, 2' do
+  it "does not allow any priority expect #{Task::PRIORITY}" do
+    task = Task.new(
+        title: 'title',
+        description: 'description',
+        due_date: Date.tomorrow,
+        priority: 0,
+        status: 'Active',
+        user_id: 1
+    )
+    task.valid?
+    expect(task.errors[:priority].size).to eq(1)
+  end
+
+  it "does not allow any status expect #{Task::STATUS}" do
     task = Task.new(
         title: 'title',
         description: 'description',
         due_date: Date.tomorrow,
         priority: 3,
+        status: 'Not Active',
         user_id: 1
     )
     task.valid?
-    expect(task.errors[:priority].size).to eq(1)
+    expect(task.errors[:status].size).to eq(1)
   end
 
   it 'does not allow due date in the past' do

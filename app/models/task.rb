@@ -1,17 +1,27 @@
 class Task < ActiveRecord::Base
+  PRIORITY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  STATUS = %w(Inactive Active Completed)
+
   belongs_to :user
 
-  validates_presence_of :title, :description, :due_date, :user_id
+  validates_presence_of :title, :description, :priority, :due_date, :user_id, :status
   validate :future_data
-  validate :priority_status
+  validate :check_priority
+  validate :check_status
 
-
-  def priority_status
-    status = [0, 1, 2]
-    if status.include?(priority)
+  def check_priority
+    if PRIORITY.include?(priority)
       true
     else
       errors.add(:priority, "Incorrect value #{priority}")
+    end
+  end
+
+  def check_status
+    if STATUS.include?(status)
+      true
+    else
+      errors.add(:status, "Incorrect value #{status}")
     end
   end
 
@@ -20,17 +30,7 @@ class Task < ActiveRecord::Base
       !due_date.blank? and due_date < Time.now
   end
 
-  def status
-    if priority == 1
-      'active'
-    elsif priority == 2
-      'completed'
-    elsif priority == 0
-      'inactive'
-    end
-  end
-
-  scope :active, -> { where(priority: 1)}
-  scope :completed, -> { where(priority: 2)}
-  scope :inactive, -> { where(priority: 0)}
+  scope :active, -> { where(status: 'Active')}
+  scope :completed, -> { where(status: 'Completed')}
+  scope :inactive, -> { where(status: 'Inactive')}
 end

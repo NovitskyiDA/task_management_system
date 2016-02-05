@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   def index
     if current_user
-      @active_tasks = current_user.tasks.active
+      @active_tasks = current_user.tasks.active.order(:priority)
       @completed_tasks = current_user.tasks.completed
       @inactive_tasks = current_user.tasks.inactive
     end
@@ -64,7 +64,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :description, :priority, :due_date)
+    params.require(:task).permit(:title, :description, :priority, :due_date, :status)
   end
 
 end
