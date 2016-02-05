@@ -1,21 +1,16 @@
-<p>
-  <strong>Title:</strong>
-  <%= @task.title %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
-<p>
-  <strong>Due data:</strong>
-  <%= @task.due_date %>
-</p>
-<p>
-  <strong>Status:</strong>
-  <%= @task.status %>
-</p>
-<%= link_to 'Edit', edit_task_path(@task), class: "btn btn-info" %>
-<%= link_to 'Delete', task_path(@task),
-            method: :delete,
-            data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-<%= link_to 'Back', root_path, class: "btn btn-default" %>
+<div class="panel-primary task-info">
+  <div class="panel-heading">
+    Title: <%= @task.title %>
+  </div>
+  <div class="panel-body">
+    <p>Description: <%= @task.description %></p>
+    <p>Due data: <%= @task.due_date %></p>
+    <p>Status: <%= @task.status %></p>
+  </div>
+  <div class="panel-footer">
+    <%= link_to 'Edit', edit_task_path(@task), class: "btn btn-info" %>
+    <%= link_to 'Delete', task_path(@task),
+                method: :delete,
+                data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  </div>
+</div>

@@ -5,7 +5,7 @@
         <div class="navbar-brand">Task Management System</div>
       </div>
       <ul class="nav navbar-nav navbar-left">
-        <li class="active"><%= link_to 'Home', root_path %></li>
+        <li class="active"><%= link_to 'Home', root_path, data: { no_turbolink: true } %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
