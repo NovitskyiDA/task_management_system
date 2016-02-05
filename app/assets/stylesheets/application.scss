@@ -18,11 +18,8 @@
 @import "bootstrap";
 
 
-.navbar{
-  background-color: yellow;
-  border: 2px solid #B00100;
-  border-radius: 5px;
-  padding: 5px;
+.alert {
+  margin: 20px 200px;
 }
 
 .alert-danger, .alert-success {
@@ -47,7 +44,20 @@ h1, h2{
   font-family: "Times New Roman";
 }
 
+.description {
+  margin: 0 100px;
+}
 
+.header-index{
+  color: green;
+  margin: 50px 0;
+}
 
+.index-container {
+  margin: 0 100px;
+}
 
+.form {
+  margin: 0 400px;
+}
 

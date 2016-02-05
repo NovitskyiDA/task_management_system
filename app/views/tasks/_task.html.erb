@@ -1,33 +1,33 @@
-
-      <div class="task">
-        <div class="batch-delete">
-          <%= check_box_tag 'task_ids[]', task.id, false %>
-        </div>
-          <div class="title-task">
-            <%= link_to task.title, task_path(task) %>
-            <div class="hover-over">
-              <%= link_to 'Edit', edit_task_path(task), :remote => false %>
-              <%= link_to 'Delete', task_path(task),
-                             method: :delete,
-                             data: { confirm: 'Are you sure?', :remote => false } %>
-            </div>
-          </div>
-        <hr>
-        <p><%= link_to 'Edit', edit_task_path(task) %></p>
-        <p><%= link_to 'Delete', task_path(task),
-                       method: :delete,
-                       data: { confirm: 'Are you sure?' } %>
-        </p>
-        <div class="priority">
-        <% if task.priority == 0 or task.priority == 2 %>
-            <p><%= link_to 'mark as active', task_path(task, task: {priority: 1}), method: :put %></p>
-        <% else %>
-            <p>
-              <%= link_to 'mark as completed', task_path(task, task: {priority: 2}), method: :put %>
-              <%= link_to 'mark as inactive', task_path(task, task: {priority: 0}), method: :put %>
-            </p>
-        <% end %>
-        </div>
-      </div>
+<div class="task panel">
+  <div class="batch-delete">
+    <%= check_box_tag 'task_ids[]', task.id, false %>
+  </div>
+  <div class="title-task">
+    <%= link_to task.title, task_path(task) %>
+    <div class="hover-over">
+      <%= link_to 'Edit', edit_task_path(task), class: "btn btn-info btn-xs", :remote => false %>
+      <%= link_to 'Delete', task_path(task),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?', :remote => false }, class: "btn btn-danger btn-xs" %>
+    </div>
+  </div>
+  <hr>
+  <p><%= link_to 'Edit', edit_task_path(task), class: "btn btn-info btn-md" %></p>
+  <p><%= link_to 'Delete', task_path(task),
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-md" %>
+  </p>
+  <div class="panel-footer">
+    <div class="priority">
+      Change status to:
+      <% if task.priority == 0 or task.priority == 2 %>
+          <%= link_to image_tag('active.png', class: "image-status"), task_path(task, task: {priority: 1}), method: :put %>
+      <% else %>
+          <%= link_to image_tag('completed.png', class: "image-status"), task_path(task, task: {priority: 2}), method: :put %>
+          <%= link_to image_tag('inactive.png', class: "image-status"), task_path(task, task: {priority: 0}), method: :put %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 

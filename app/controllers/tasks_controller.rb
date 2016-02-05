@@ -4,14 +4,9 @@ class TasksController < ApplicationController
 
   def index
     if current_user
-      @user = User.find(current_user)
-      if params[:sort] == 'title'
-        @tasks = @user.tasks.order(:title)
-      else
-        @active_tasks = @user.tasks.active
-        @completed_tasks = @user.tasks.completed
-        @inactive_tasks = @user.tasks.inactive
-      end
+      @active_tasks = current_user.tasks.active
+      @completed_tasks = current_user.tasks.completed
+      @inactive_tasks = current_user.tasks.inactive
     end
   end
 
@@ -38,7 +33,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to task_path
+      redirect_to root_path
     else
       render 'edit'
     end
@@ -56,6 +51,10 @@ class TasksController < ApplicationController
     tasks = Task.where(:id => params[:task_ids])
     tasks.destroy_all
     redirect_to root_path
+  end
+
+  def sort
+    @tasks = current_user.tasks.order(:title)
   end
 
   private

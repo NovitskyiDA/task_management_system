@@ -1,15 +1,18 @@
-<div class="navbar navbar-default navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
+      <div class="navbar-header">
+        <div class="navbar-brand">Task Management System</div>
+      </div>
       <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to 'Home', root_path %></li>
+        <li class="active"><%= link_to 'Home', root_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
             <li class="title"><%= link_to current_user.full_name, edit_user_registration_path %></li>
             <li class="hideable"><%= link_to 'Sing out', destroy_user_session_path, method: :delete %></li>
         <% else %>
-            <li><%= link_to 'Sing up', new_user_registration_path %></li>
+            <li><%= link_to 'Sing up', new_user_registration_path %></span></li>
             <li><%= link_to 'Sing in', new_user_session_path %></li>
         <% end %>
       </ul>

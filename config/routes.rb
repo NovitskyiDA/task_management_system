@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/tasks/sort' => 'tasks#sort'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   resources :tasks do
