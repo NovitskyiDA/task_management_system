@@ -5,6 +5,7 @@ class Task < ActiveRecord::Base
   validate :future_data
   validate :priority_status
 
+
   def priority_status
     status = [0, 1, 2]
     if status.include?(priority)
