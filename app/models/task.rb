@@ -1,21 +1,12 @@
 class Task < ActiveRecord::Base
-  PRIORITY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   STATUS = %w(Inactive Active Completed)
 
   belongs_to :user
 
   validates_presence_of :title, :description, :priority, :due_date, :user_id, :status
   validate :future_data
-  validate :check_priority
   validate :check_status
-
-  def check_priority
-    if PRIORITY.include?(priority)
-      true
-    else
-      errors.add(:priority, "Incorrect value #{priority}")
-    end
-  end
+  validates_inclusion_of :priority, :in => 1..100
 
   def check_status
     if STATUS.include?(status)

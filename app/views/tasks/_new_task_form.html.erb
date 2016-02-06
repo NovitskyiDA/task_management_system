@@ -14,12 +14,12 @@
         <%= f.text_field :due_date, class: "form-control", id: 'datetimepicker', validate: true %>
       </div>
       <div class="form-group">
-        <%= f.label :priority %><br>
-        <%= f.select :priority, Task::PRIORITY.map { |value| [ value, value ] } %>
+        <%= f.label :priority, 'Priority(1..100):' %><br>
+        <%= f.text_field :priority, class: "form-control", validate: true %>
       </div>
       <% Task::STATUS.each do |elem| %>
           <div class="form-group">
-            <%= f.radio_button :status, elem %>
+            <%= f.radio_button :status, elem, :checked => (elem == 'Active') %>
             <%= f.label elem %><br />
           </div>
       <% end %>
@@ -28,4 +28,8 @@
       </p>
     </form>
 <% end %>
+
+<div class="form"></div>
+
+<div class="form"></div>
 

@@ -3,24 +3,24 @@
     <p align="center">
       <%= link_to 'Full list sorted by title', tasks_sort_path, class: "btn btn-primary" %>
     </p>
-        <p align="center">
-          <%= link_to 'Batch delete', root_path, id: "batch-button", class: "btn btn-primary" %>
-        </p>
+    <p align="center">
+      <%= link_to 'Batch delete', root_path, id: "batch-button", class: "btn btn-primary" %>
+    </p>
     <div class="row">
       <%= form_tag destroy_multiple_tasks_path, method: :delete do %>
-              <div class="col-lg-4">
-                <h1>Active</h1>
-                <%= render @active_tasks %>
-              </div>
-              <div class="col-lg-4">
-                <h1>Completed</h1>
-                <%= render @completed_tasks %>
-              </div>
-              <div class="col-lg-4">
-                <h1>Inactive</h1>
-                <%= render @inactive_tasks %>
-              </div>
-              </div>
+          <div class="col-lg-4">
+            <h1>Active</h1>
+            <%= render @active_tasks %>
+          </div>
+          <div class="col-lg-4">
+            <h1>Completed</h1>
+            <%= render @completed_tasks %>
+          </div>
+          <div class="col-lg-4">
+            <h1>Inactive</h1>
+            <%= render @inactive_tasks %>
+          </div>
+          </div>
           <div class="batch-delete">
             <p align="center">
               <input type="checkbox" id="selectAll" value="selectAll"> Select / Deselect All<br/><br/>
@@ -28,16 +28,19 @@
             </p>
           </div>
       <% end %>
-    </div>
+      </div>
       <div class="new-task">
         <p align="center"><%= link_to 'New task', new_task_path, class: "btn btn-primary" %></p>
       </div>
 <% else %>
     <div class="about">
       <h1 class="header-index">Task Management System</h1>
+
       <h2 class="description">
         <p>Task management is the process of managing a task through its lifecycle.</p>
+
         <p>It involves creating, editing and changing status.</p>
+
         <p>Task management can help people achieve goals.</p>
       </h2>
       <%= link_to image_tag('sign-up.png', class: "sign-up"), new_user_registration_path %>
