@@ -15,7 +15,7 @@
   <p><%= link_to 'Edit', edit_task_path(task), class: "btn btn-info btn-md" %></p>
   <p><%= link_to 'Delete', task_path(task),
                  method: :delete,
-                 data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-md" %>
+                 data: { confirm: 'Are you sure?' }, remote: true, class: "delete_task btn btn-danger btn-md" %>
   </p>
   <div class="panel-footer">
     <div class="priority">

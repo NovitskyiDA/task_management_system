@@ -1,1 +1,3 @@
-$('#edit_task_<%= task.id %>').remove();
+$('.delete_task').bind('ajax:success', function() {
+    $(this).closest('.task').fadeOut();
+});
