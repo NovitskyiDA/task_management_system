@@ -16,6 +16,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @status_list = Task::STATUS
   end
 
   def edit
@@ -27,7 +28,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to root_path
     else
-      render 'new'
+      redirect_to 'new'
     end
   end
 
@@ -43,7 +44,7 @@ class TasksController < ApplicationController
     @task.destroy
     respond_to do |format|
       format.html { redirect_to root_path }
-      format.js { render :layout => false }
+      format.js
     end
   end
 

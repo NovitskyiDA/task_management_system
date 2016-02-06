@@ -1,3 +1,4 @@
+<div class="input-form">
 <%= form_for @task, validate: true do |f| %>
     <form role="form">
       <%= render 'errors' %>
@@ -19,7 +20,11 @@
       </div>
       <% Task::STATUS.each do |elem| %>
           <div class="form-group">
-            <%= f.radio_button :status, elem, :checked => (elem == 'Active') %>
+            <% if @task.status.present? %>
+                <%= f.radio_button :status, elem, :checked => (elem == @task.status) %>
+            <% else %>
+                <%= f.radio_button :status, elem, :checked => (elem == 'Active'), :disabled => (elem != 'Active') %>
+          <% end %>
             <%= f.label elem %><br />
           </div>
       <% end %>
@@ -28,3 +33,4 @@
       </p>
     </form>
 <% end %>
+</div>
