@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require jquery.datetimepicker
 //= require rails.validations
+//= require rails.validations.simple_form
 //= require_tree .
 
 var ready;

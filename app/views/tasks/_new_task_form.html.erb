@@ -1,5 +1,5 @@
 <div class="input-form">
-<%= form_for @task, validate: true do |f| %>
+<%= form_for @task, validate: true, class: "new_task_form" do |f| %>
     <form role="form">
       <%= render 'errors' %>
       <div class="form-group">
