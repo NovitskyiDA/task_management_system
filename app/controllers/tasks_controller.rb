@@ -25,11 +25,19 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user = current_user
-    if @task.save
-      redirect_to root_path
-    else
-      redirect_to 'new'
+    respond_to do |format|
+      if @task.save
+        format.html { redirect_to root_path }
+        format.js
+      else
+        redirect_to 'new'
+      end
     end
+    # if @task.save
+    #   redirect_to root_path
+    # else
+    #   redirect_to 'new'
+    # end
   end
 
   def update

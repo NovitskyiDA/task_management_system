@@ -1,5 +1,5 @@
-<div class="input-form">
-<%= form_for @task, validate: true, class: "new_task_form" do |f| %>
+<div class="input-form" id="input_task_form">
+<%= form_for @task, validate: true, remote: true do |f| %>
     <form role="form">
       <%= render 'errors' %>
       <div class="form-group">
@@ -29,7 +29,7 @@
           </div>
       <% end %>
       <p>
-        <%= f.submit %>
+          <%= f.submit %>
       </p>
     </form>
 <% end %>

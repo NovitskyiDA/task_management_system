@@ -8,7 +8,7 @@
     </p>
     <div class="row">
       <%= form_tag destroy_multiple_tasks_path, method: :delete do %>
-          <div class="col-lg-4">
+          <div class="col-lg-4" id="active_tasks">
             <h1>Active</h1>
             <%= render @active_tasks %>
           </div>
